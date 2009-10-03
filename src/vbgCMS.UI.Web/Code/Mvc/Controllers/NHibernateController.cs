@@ -6,9 +6,9 @@ using System.Web.Mvc;
 using Microsoft.Practices.ServiceLocation;
 using NHibernate;
 
-namespace vbgCMS.UI.Web.Code.NHibernate
+namespace vbgCMS.UI.Web.Code.Mvc.Controllers
 {
-    public abstract class NHibernateControllerBase : Controller
+    public abstract class NHibernateController : Controller
     {
         private ITransaction _transaction;
 
