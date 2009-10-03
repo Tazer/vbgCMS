@@ -33,6 +33,21 @@ namespace vbgCMS.UI.Web.Code.Configuration.Mvc
                     );
             }
         }
+        public class InstallAreaRoute : AreaRegistration
+        {
+            public override string AreaName
+            {
+                get { return "install"; }
+            }
+
+            public override void RegisterArea(AreaRegistrationContext context)
+            {
+                context.MapRoute("install",
+                    "App/{controller}/{action}/{id}",
+                    new { controller = "Install", action = "Step1", id = "" },
+                    new string[] { "vbgCMS.UI.Web.Areas.Install.Controllers" });
+            }
+        }
 
         public class DefaultAreaRoute : AreaRegistration
         {
@@ -43,18 +58,21 @@ namespace vbgCMS.UI.Web.Code.Configuration.Mvc
 
             public override void RegisterArea(AreaRegistrationContext context)
             {
-                context.MapRoute("default", 
-                    "{controller}/{action}/{id}", 
-                    new { controller = "Home", action = "Index", id = "" }, 
+                context.MapRoute("default",
+                    "{controller}/{action}/{id}",
+                    new { controller = "Home", action = "Index", id = "" },
                     new string[] { "vbgCMS.UI.Web.Areas.Default.Controllers" });
             }
         }
+
+
 
         #region IRegister Members
 
         public void Execute()
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("Install.aspx");
             AreaRegistration.RegisterAllAreas();
         }
 

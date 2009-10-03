@@ -51,6 +51,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
+    <Reference Include="RouteDebug, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\RouteDebug.dll</HintPath>
+    </Reference>
     <Reference Include="StructureMap, Version=2.5.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\StructureMap.dll</HintPath>
@@ -87,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Default\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Install\Controllers\InstallController.cs" />
     <Compile Include="Code\Configuration\NHibernate\RegisterNHibernate.cs" />
     <Compile Include="Code\Mvc\Controllers\AdminController.cs" />
     <Compile Include="Code\Mvc\Controllers\BaseController.cs" />
@@ -100,6 +105,13 @@
     <Compile Include="Code\Configuration\Mvc\RegisterRoutes.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Install.aspx.cs">
+      <DependentUpon>Install.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Install.aspx.designer.cs">
+      <DependentUpon>Install.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -115,12 +127,21 @@
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Home\Index.aspx" />
     <Content Include="Areas\Admin\Views\Shared\Admin.Master" />
+    <Content Include="Areas\Install\Views\Shared\Error.aspx" />
+    <Content Include="Install.aspx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\vbgCMS\vbgCMS.csproj">
       <Project>{AD30FDE4-1E6D-4C30-9D3F-AED42924B69F}</Project>
       <Name>vbgCMS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Install\Views\Shared\Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Install\Views\Install\Step1.aspx" />
+    <Content Include="Areas\Install\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
