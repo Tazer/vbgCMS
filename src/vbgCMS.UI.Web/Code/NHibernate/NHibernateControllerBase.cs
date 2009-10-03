@@ -20,8 +20,6 @@ namespace vbgCMS.UI.Web.Code.NHibernate
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            //_transaction = ServiceLocator.Current.GetInstance<ISession>().Transaction;
-
             try
             {
                 _transaction.Commit();
