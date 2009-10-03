@@ -39,6 +39,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate.Linq, Version=1.0.0.4000, Culture=neutral, PublicKeyToken=444cf6a87fdab271, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\NHibernate.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -54,6 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Mappings\SiteMap.cs" />
+    <Compile Include="Infrastructure\NHibernate\BaseRepository.cs" />
+    <Compile Include="Infrastructure\NHibernate\Interfaces\IDelete.cs" />
+    <Compile Include="Infrastructure\NHibernate\Interfaces\IGet.cs" />
+    <Compile Include="Infrastructure\NHibernate\Interfaces\IGetById.cs" />
+    <Compile Include="Infrastructure\NHibernate\Interfaces\ILoad.cs" />
+    <Compile Include="Infrastructure\NHibernate\Interfaces\ISave.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Site.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
