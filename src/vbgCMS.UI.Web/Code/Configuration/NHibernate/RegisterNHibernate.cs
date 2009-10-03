@@ -45,12 +45,14 @@ namespace vbgCMS.UI.Web.Code.Configuration.NHibernate
         {
             _application.BeginRequest += delegate
                                              {
+                                                 CustomSessionContext.CurrentSession =
+                                                     ServiceLocator.Current.GetInstance<ISessionFactory>().OpenSession();
                                                  //CurrentSessionContext.Bind(
                                                  //  ServiceLocator.Current.GetInstance<ISessionFactory>().OpenSession());
                                              };
             _application.EndRequest += delegate  
                                            {
-                                               var session = ServiceLocator.Current.GetInstance<ISession>();
+                                               var session = CustomSessionContext.CurrentSession;
                                                    //CurrentSessionContext.Unbind(
                                                    //    ServiceLocator.Current.GetInstance<ISessionFactory>());
 
@@ -60,6 +62,15 @@ namespace vbgCMS.UI.Web.Code.Configuration.NHibernate
     }
 
         #endregion
+    }
+
+    public static class CustomSessionContext
+    {
+        public static ISession  CurrentSession
+        {
+            get { return (ISession)HttpContext.Current.Items["current.session"]; }
+            set { HttpContext.Current.Items["current.session"] = value; }
+        }
     }
 
     public class CustomDatabaseConfiguration

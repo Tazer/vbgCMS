@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using HibernatingRhinos.NHibernate.Profiler.Appender;
 using vbgCMS.UI.Web.Code.Configuration;
+using vbgCMS.UI.Web.Code.Configuration.NHibernate;
 
 namespace vbgCMS.UI.Web
 {
@@ -14,10 +15,15 @@ namespace vbgCMS.UI.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        public MvcApplication()
+        {
+            new RegisterNHibernate(this).Execute();
+        }
+
         protected void Application_Start()
         {
             NHibernateProfiler.Initialize();
-            new BootStrapper(this).Run();
+            new BootStrapper().Run();
         }
     }
 }

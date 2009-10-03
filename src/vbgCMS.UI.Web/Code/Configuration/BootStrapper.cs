@@ -9,14 +9,14 @@ namespace vbgCMS.UI.Web.Code.Configuration
 {
     public class BootStrapper
     {
-        public BootStrapper(HttpApplication application)
+        public BootStrapper()
         {
-            Configure(application);
+            Configure();
         }
 
-        private static void Configure(HttpApplication application)
+        private static void Configure()
         {
-            new RegisterDependencyInjection(application).Execute();
+            new RegisterDependencyInjection().Execute();
         }
 
         public void Run()

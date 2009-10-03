@@ -17,13 +17,6 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
 {
     public class RegisterDependencyInjection : IRegister
     {
-        private readonly HttpApplication _application;
-
-        public RegisterDependencyInjection(HttpApplication application)
-        {
-            _application = application;
-        }
-
         private class MvcRegistry : Registry
         {
             public MvcRegistry()
@@ -34,8 +27,8 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
 
                 ForRequestedType<IRegister>()
                     .AddConcreteType<RegisterRoutes>()
-                    .AddConcreteType<RegisterControllerFactory>()
-                    .AddConcreteType<RegisterNHibernate>();
+                    .AddConcreteType<RegisterControllerFactory>();
+                    //.AddConcreteType<RegisterNHibernate>();
             }
         }
 
@@ -45,10 +38,7 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
             {
                 ForRequestedType<ISessionFactory>().TheDefault.Is.ConstructedBy(ctx =>
                     RegisterNHibernate.Configure().BuildSessionFactory());
-                ForRequestedType<ISession>().CacheBy(InstanceScope.Hybrid).TheDefault.Is.ConstructedBy(ctx =>
-                                                                                                           {
-                                                                                                               return ctx.GetInstance<ISessionFactory>().OpenSession();
-                                                                                                           });
+                ForRequestedType<ISession>().CacheBy(InstanceScope.Hybrid).TheDefault.Is.ConstructedBy(ctx => CustomSessionContext.CurrentSession);
             }
         }
 
@@ -76,7 +66,6 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
 
             ObjectFactory.Initialize(x =>
             {
-                x.ForRequestedType<HttpApplication>().TheDefault.IsThis(_application);
                 x.AddRegistry<MvcRegistry>();
                 x.AddRegistry<NHibernateRegistry>();
             });
