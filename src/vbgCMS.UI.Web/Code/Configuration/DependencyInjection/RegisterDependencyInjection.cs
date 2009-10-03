@@ -7,6 +7,7 @@ using StructureMap;
 using StructureMap.Configuration.DSL;
 using System.Web.Routing;
 using vbgCMS.UI.Web.Code.Configuration.Mvc;
+using System.Web.Mvc;
 
 namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
 {
@@ -19,9 +20,11 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
                 var x = this;
 
                 x.ForRequestedType<RouteCollection>().TheDefault.IsThis(RouteTable.Routes);
+                x.ForRequestedType<ControllerBuilder>().TheDefault.IsThis(ControllerBuilder.Current);
 
                 x.ForRequestedType<IRegister>()
-                    .AddConcreteType<RegisterRoutes>();
+                    .AddConcreteType<RegisterRoutes>()
+                    .AddConcreteType<RegisterControllerFactory>();
             }
         }
 
