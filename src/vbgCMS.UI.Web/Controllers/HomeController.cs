@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using vbgCMS.UI.Web.Code.Mvc.Controllers;
 
 namespace vbgCMS.UI.Web.Controllers
 {
-    [HandleError]
-    public class HomeController : Controller
+    public class HomeController : CMSController
     {
         public ActionResult Index()
         {
