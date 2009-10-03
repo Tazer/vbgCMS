@@ -17,14 +17,14 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
         {
             public MvcRegistry()
             {
-                var x = this;
+                ForRequestedType<RouteCollection>().TheDefault.IsThis(RouteTable.Routes);
+                ForRequestedType<ControllerBuilder>().TheDefault.IsThis(ControllerBuilder.Current);
+                ForRequestedType<ViewEngineCollection>().TheDefault.IsThis(ViewEngines.Engines);
 
-                x.ForRequestedType<RouteCollection>().TheDefault.IsThis(RouteTable.Routes);
-                x.ForRequestedType<ControllerBuilder>().TheDefault.IsThis(ControllerBuilder.Current);
-
-                x.ForRequestedType<IRegister>()
+                ForRequestedType<IRegister>()
                     .AddConcreteType<RegisterRoutes>()
                     .AddConcreteType<RegisterControllerFactory>();
+                    //.AddConcreteType<RegisterViewEngine>();
             }
         }
 

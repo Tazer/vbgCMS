@@ -16,16 +16,37 @@ namespace vbgCMS.UI.Web.Code.Configuration.Mvc
             this.routes = routes;
         }
 
+        public class AdminAreaRoute : AreaRegistration
+        {
+            public override string AreaName
+            {
+                get { return "admin"; }
+            }
+
+            public override void RegisterArea(AreaRegistrationContext context)
+            {
+                context.MapRoute(
+                    "admin",
+                    "admin/{controller}/{action}/{id}",
+                    new { controller = "Home", action = "Index", id = "" },
+                    new string[] { "vbgCMS.UI.Web.Areas.Admin.Controllers" }
+                    );
+            }
+        }
+
         #region IRegister Members
 
         public void Execute()
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            AreaRegistration.RegisterAllAreas();
+
             routes.MapRoute(
-                "Default",                                              // Route name
-                "{controller}/{action}/{id}",                           // URL with parameters
-                new { controller = "Home", action = "Index", id = "" }  // Parameter defaults
+                "Default",
+                "{controller}/{action}/{id}",
+                new { controller = "Home", action = "Index", id = "" },
+                new string[] { "vbgCMS.UI.Web.Controllers" }
             );
         }
 
