@@ -45,14 +45,14 @@ namespace vbgCMS.UI.Web.Code.Configuration.NHibernate
         {
             _application.BeginRequest += delegate
                                              {
-                                                 CurrentSessionContext.Bind(
-                                                   ServiceLocator.Current.GetInstance<ISessionFactory>().OpenSession());
+                                                 //CurrentSessionContext.Bind(
+                                                 //  ServiceLocator.Current.GetInstance<ISessionFactory>().OpenSession());
                                              };
             _application.EndRequest += delegate  
                                            {
-                                               var session =
-                                                   CurrentSessionContext.Unbind(
-                                                       ServiceLocator.Current.GetInstance<ISessionFactory>());
+                                               var session = ServiceLocator.Current.GetInstance<ISession>();
+                                                   //CurrentSessionContext.Unbind(
+                                                   //    ServiceLocator.Current.GetInstance<ISessionFactory>());
 
                                                if (session != null)
                                                    session.Dispose();

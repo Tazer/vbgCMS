@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using HibernatingRhinos.NHibernate.Profiler.Appender;
 using vbgCMS.UI.Web.Code.Configuration;
 
 namespace vbgCMS.UI.Web
@@ -15,6 +16,7 @@ namespace vbgCMS.UI.Web
     {
         protected void Application_Start()
         {
+            NHibernateProfiler.Initialize();
             new BootStrapper(this).Run();
         }
     }
