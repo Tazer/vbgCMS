@@ -35,6 +35,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\FluentNHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.CommonServiceLocator, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\FluentValidation.CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc, Version=1.2.0.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="HibernatingRhinos.NHibernate.Profiler.Appender, Version=1.0.0.0, Culture=neutral, PublicKeyToken=0774796e73ebf640, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\HibernatingRhinos.NHibernate.Profiler.Appender.dll</HintPath>
@@ -87,6 +99,7 @@
   <ItemGroup>
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Default\Controllers\HomeController.cs" />
+    <Compile Include="Code\Configuration\Mvc\RegisterModelBinder.cs" />
     <Compile Include="Code\Configuration\NHibernate\RegisterNHibernate.cs" />
     <Compile Include="Code\Mvc\Controllers\AdminController.cs" />
     <Compile Include="Code\Mvc\Controllers\BaseController.cs" />

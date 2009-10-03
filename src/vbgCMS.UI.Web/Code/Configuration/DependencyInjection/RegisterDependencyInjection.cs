@@ -12,6 +12,7 @@ using System.Web.Mvc;
 using NHibernate;
 using vbgCMS.UI.Web.Code.Configuration.NHibernate;
 using NHibernate.Context;
+using FluentValidation;
 
 namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
 {
@@ -24,11 +25,12 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
                 ForRequestedType<RouteCollection>().TheDefault.IsThis(RouteTable.Routes);
                 ForRequestedType<ControllerBuilder>().TheDefault.IsThis(ControllerBuilder.Current);
                 ForRequestedType<ViewEngineCollection>().TheDefault.IsThis(ViewEngines.Engines);
+                ForRequestedType<ModelBinderDictionary>().TheDefault.IsThis(ModelBinders.Binders);
+                ForRequestedType<IValidatorFactory>().TheDefault.Is.ConstructedBy(() => new DefaultValidatorFactory(ServiceLocator.Current));
 
                 ForRequestedType<IRegister>()
                     .AddConcreteType<RegisterRoutes>()
                     .AddConcreteType<RegisterControllerFactory>();
-                    //.AddConcreteType<RegisterNHibernate>();
             }
         }
 
@@ -39,6 +41,14 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
                 ForRequestedType<ISessionFactory>().TheDefault.Is.ConstructedBy(ctx =>
                     RegisterNHibernate.Configure().BuildSessionFactory());
                 ForRequestedType<ISession>().CacheBy(InstanceScope.Hybrid).TheDefault.Is.ConstructedBy(ctx => CustomSessionContext.CurrentSession);
+            }
+        }
+
+        private class ValidationRegistry : Registry
+        {
+            public ValidationRegistry()
+            {
+
             }
         }
 
@@ -68,6 +78,7 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
             {
                 x.AddRegistry<MvcRegistry>();
                 x.AddRegistry<NHibernateRegistry>();
+                x.AddRegistry<ValidationRegistry>();
             });
 
             ServiceLocator.SetLocatorProvider(() => new StructureMapServiceLocator());
