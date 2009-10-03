@@ -145,6 +145,8 @@
     <Content Include="Areas\Install\Views\Shared\Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Install\Content\Site.css" />
+    <Content Include="Areas\Install\Views\Install\Completed.aspx" />
     <Content Include="Areas\Install\Views\Install\Step1.aspx" />
     <Content Include="Areas\Install\Views\Web.config" />
   </ItemGroup>

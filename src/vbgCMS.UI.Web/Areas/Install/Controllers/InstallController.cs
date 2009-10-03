@@ -37,6 +37,12 @@ namespace vbgCMS.UI.Web.Areas.Install.Controllers
                 }
             }
 
+            return RedirectToAction("Completed");
+        }
+
+        public  ActionResult Completed()
+        {
+            ViewData["Feedback"] = "Database created. Remove The Areas/Install folder";
             return View();
         }
 
