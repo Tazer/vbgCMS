@@ -48,6 +48,8 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
             ObjectFactory.Initialize(x => {
                 x.AddRegistry<MvcRegistry>();
             });
+
+            ServiceLocator.SetLocatorProvider(() => new StructureMapServiceLocator());
         }
 
         #endregion
