@@ -7,19 +7,19 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace vbgCMS.UI.Web.Code.Configuration
 {
-    public static class BootStrapper
+    public class BootStrapper
     {
-        static BootStrapper()
+        public BootStrapper(HttpApplication application)
         {
-            Configure();
+            Configure(application);
         }
 
-        private static void Configure()
+        private static void Configure(HttpApplication application)
         {
-            new RegisterDependencyInjection().Execute();
+            new RegisterDependencyInjection(application).Execute();
         }
 
-        public static void Run()
+        public void Run()
         {
             foreach (var register in ServiceLocator.Current.GetAllInstances<IRegister>())
                 register.Execute();

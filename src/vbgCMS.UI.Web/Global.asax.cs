@@ -15,7 +15,7 @@ namespace vbgCMS.UI.Web
     {
         protected void Application_Start()
         {
-            BootStrapper.Run();
+            new BootStrapper(this).Run();
         }
     }
 }

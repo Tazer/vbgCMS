@@ -34,20 +34,28 @@ namespace vbgCMS.UI.Web.Code.Configuration.Mvc
             }
         }
 
+        public class DefaultAreaRoute : AreaRegistration
+        {
+            public override string AreaName
+            {
+                get { return "default"; }
+            }
+
+            public override void RegisterArea(AreaRegistrationContext context)
+            {
+                context.MapRoute("default", 
+                    "{controller}/{action}/{id}", 
+                    new { controller = "Home", action = "Index", id = "" }, 
+                    new string[] { "vbgCMS.UI.Web.Areas.Default.Controllers" });
+            }
+        }
+
         #region IRegister Members
 
         public void Execute()
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
             AreaRegistration.RegisterAllAreas();
-
-            routes.MapRoute(
-                "Default",
-                "{controller}/{action}/{id}",
-                new { controller = "Home", action = "Index", id = "" },
-                new string[] { "vbgCMS.UI.Web.Controllers" }
-            );
         }
 
         #endregion

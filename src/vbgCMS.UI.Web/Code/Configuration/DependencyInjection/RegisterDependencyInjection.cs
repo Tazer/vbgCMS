@@ -4,15 +4,26 @@ using System.Linq;
 using System.Web;
 using Microsoft.Practices.ServiceLocation;
 using StructureMap;
+using StructureMap.Attributes;
 using StructureMap.Configuration.DSL;
 using System.Web.Routing;
 using vbgCMS.UI.Web.Code.Configuration.Mvc;
 using System.Web.Mvc;
+using NHibernate;
+using vbgCMS.UI.Web.Code.Configuration.NHibernate;
+using NHibernate.Context;
 
 namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
 {
     public class RegisterDependencyInjection : IRegister
     {
+        private readonly HttpApplication _application;
+
+        public RegisterDependencyInjection(HttpApplication application)
+        {
+            _application = application;
+        }
+
         private class MvcRegistry : Registry
         {
             public MvcRegistry()
@@ -23,8 +34,21 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
 
                 ForRequestedType<IRegister>()
                     .AddConcreteType<RegisterRoutes>()
-                    .AddConcreteType<RegisterControllerFactory>();
-                    //.AddConcreteType<RegisterViewEngine>();
+                    .AddConcreteType<RegisterControllerFactory>()
+                    .AddConcreteType<RegisterNHibernate>();
+            }
+        }
+
+        private class NHibernateRegistry : Registry
+        {
+            public NHibernateRegistry()
+            {
+                ForRequestedType<ISessionFactory>().TheDefault.Is.ConstructedBy(ctx =>
+                    RegisterNHibernate.Configure().BuildSessionFactory());
+                ForRequestedType<ISession>().CacheBy(InstanceScope.Hybrid).TheDefault.Is.ConstructedBy(ctx =>
+                                                                                                           {
+                                                                                                               return ctx.GetInstance<ISessionFactory>().OpenSession();
+                                                                                                           });
             }
         }
 
@@ -48,8 +72,13 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
 
         public void Execute()
         {
-            ObjectFactory.Initialize(x => {
+
+
+            ObjectFactory.Initialize(x =>
+            {
+                x.ForRequestedType<HttpApplication>().TheDefault.IsThis(_application);
                 x.AddRegistry<MvcRegistry>();
+                x.AddRegistry<NHibernateRegistry>();
             });
 
             ServiceLocator.SetLocatorProvider(() => new StructureMapServiceLocator());

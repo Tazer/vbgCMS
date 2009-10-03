@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=1.0.0.593, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\FluentNHibernate.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -38,6 +42,10 @@
     <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="StructureMap, Version=2.5.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -74,6 +82,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Default\Controllers\HomeController.cs" />
+    <Compile Include="Code\Configuration\NHibernate\RegisterNHibernate.cs" />
     <Compile Include="Code\Mvc\Controllers\AdminController.cs" />
     <Compile Include="Code\Mvc\Controllers\BaseController.cs" />
     <Compile Include="Code\Mvc\Controllers\CMSController.cs" />
@@ -84,7 +94,6 @@
     <Compile Include="Code\Configuration\DependencyInjection\RegisterDependencyInjection.cs" />
     <Compile Include="Code\Configuration\IRegister.cs" />
     <Compile Include="Code\Configuration\Mvc\RegisterRoutes.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -93,21 +102,26 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Views\Home\About.aspx" />
-    <Content Include="Views\Home\Index.aspx" />
-    <Content Include="Views\Shared\Error.aspx" />
-    <Content Include="Views\Shared\Site.Master" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Areas\Default\Content\Site.css" />
+    <Content Include="Areas\Default\Views\Home\Index.aspx" />
+    <Content Include="Areas\Default\Views\Shared\Error.aspx" />
+    <Content Include="Areas\Default\Views\Shared\Site.Master" />
+    <Content Include="Areas\Default\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Home\Index.aspx" />
     <Content Include="Areas\Admin\Views\Shared\Admin.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\vbgCMS\vbgCMS.csproj">
+      <Project>{AD30FDE4-1E6D-4C30-9D3F-AED42924B69F}</Project>
+      <Name>vbgCMS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Content\" />
-    <Folder Include="Models\" />
+    <Folder Include="Content\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

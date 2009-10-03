@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using vbgCMS.UI.Web.Code.Mvc.Controllers;
 
-namespace vbgCMS.UI.Web.Controllers
+namespace vbgCMS.UI.Web.Areas.Default.Controllers
 {
     public class HomeController : CMSController
     {
