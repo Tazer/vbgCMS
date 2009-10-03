@@ -73,6 +73,8 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Code\Configuration\Mvc\RegisterControllerFactory.cs" />
+    <Compile Include="Code\Mvc\ControllerFactory.cs" />
     <Compile Include="Code\NHibernate\NHibernateControllerBase.cs" />
     <Compile Include="Code\Configuration\BootStrapper.cs" />
     <Compile Include="Code\Configuration\DependencyInjection\RegisterDependencyInjection.cs" />
