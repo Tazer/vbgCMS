@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.Practices.ServiceLocation;
 using StructureMap;
 using StructureMap.Configuration.DSL;
 using System.Web.Routing;
@@ -21,6 +22,22 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
 
                 x.ForRequestedType<IRegister>()
                     .AddConcreteType<RegisterRoutes>();
+            }
+        }
+
+        public class StructureMapServiceLocator : ServiceLocatorImplBase
+        {
+
+            protected override object DoGetInstance(Type serviceType, string key)
+            {
+                return string.IsNullOrEmpty(key)
+                           ? ObjectFactory.GetInstance(serviceType)
+                           : ObjectFactory.GetNamedInstance(serviceType, key);
+            }
+
+            protected override IEnumerable<object> DoGetAllInstances(Type serviceType)
+            {
+                return ObjectFactory.GetAllInstances(serviceType).Cast<object>().AsEnumerable();
             }
         }
 
