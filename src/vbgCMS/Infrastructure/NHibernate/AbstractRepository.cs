@@ -7,12 +7,12 @@ using NHibernate.Linq;
 
 namespace vbgCMS.Infrastructure.NHibernate
 {
-    public abstract class BaseRepository<T, IdT>
+    public abstract class AbstractRepository<T, IdT>
     {
         private readonly ISession _session;
         private readonly IQueryable<T> _queryable;
 
-        public BaseRepository(ISession session)
+        public AbstractRepository(ISession session)
         {
             _session = session;
             _queryable = session.Linq<T>();
