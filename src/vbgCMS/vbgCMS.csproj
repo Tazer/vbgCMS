@@ -58,11 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Mappings\SiteMap.cs" />
-    <Compile Include="Infrastructure\NHibernate\BaseRepository.cs" />
+    <Compile Include="Infrastructure\NHibernate\AbstractQuery.cs" />
+    <Compile Include="Infrastructure\NHibernate\AbstractRepository.cs" />
     <Compile Include="Infrastructure\NHibernate\Interfaces\IDelete.cs" />
     <Compile Include="Infrastructure\NHibernate\Interfaces\IGet.cs" />
     <Compile Include="Infrastructure\NHibernate\Interfaces\IGetById.cs" />
     <Compile Include="Infrastructure\NHibernate\Interfaces\ILoad.cs" />
+    <Compile Include="Infrastructure\NHibernate\Interfaces\IQuery.cs" />
     <Compile Include="Infrastructure\NHibernate\Interfaces\ISave.cs" />
     <Compile Include="Models\BaseEntity.cs" />
     <Compile Include="Models\Site.cs" />

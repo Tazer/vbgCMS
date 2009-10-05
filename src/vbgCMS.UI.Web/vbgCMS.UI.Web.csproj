@@ -103,9 +103,11 @@
   <ItemGroup>
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Default\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Default\Helpers\SiteExtensions.cs" />
     <Compile Include="Areas\Install\Controllers\InstallController.cs" />
     <Compile Include="Code\Configuration\Mvc\RegisterModelBinder.cs" />
     <Compile Include="Code\Configuration\NHibernate\RegisterNHibernate.cs" />
+    <Compile Include="Code\KeyManager.cs" />
     <Compile Include="Code\Mvc\Controllers\AdminController.cs" />
     <Compile Include="Code\Mvc\Controllers\BaseController.cs" />
     <Compile Include="Code\Mvc\Controllers\CMSController.cs" />
@@ -151,8 +153,13 @@
     <Content Include="Areas\Install\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Content\" />
+    <Folder Include="Code\Mvc\ActionFilters\" />
+    <Folder Include="Code\Mvc\Helpers\" />
     <Folder Include="Content\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
