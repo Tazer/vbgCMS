@@ -7,11 +7,12 @@ using FluentNHibernate.Mapping;
 
 namespace vbgCMS.Data.Mappings
 {
-    public class TextWidgetMap : SubclassMap<TextWidget>
-    {
-        public TextWidgetMap()
-        {
-            Map(x => x.Data);
-        }
-    }
+    //public class TextWidgetMap : JoinedSubClassPart<TextWidget> // SubclassMap<TextWidget>
+    //{
+    //    public TextWidgetMap()
+    //        : base("TextWidgetId")
+    //    {
+    //        Map(x => x.Data);
+    //    }
+    //}
 }

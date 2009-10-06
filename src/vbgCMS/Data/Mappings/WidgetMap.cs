@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using vbgCMS.Infrastructure.CMS;
 using FluentNHibernate.Mapping;
+using vbgCMS.Infrastructure.CMS.Widgets.Standard;
 
 namespace vbgCMS.Data.Mappings
 {
@@ -17,7 +18,12 @@ namespace vbgCMS.Data.Mappings
             References<Page>(x => x.Page);
             References<Zone>(x => x.Zone);
 
-            DiscriminateSubClassesOnColumn("Type");
+            //How do I do this now???
+            JoinedSubClass<TextWidget>("TextWidgetId", sub => {
+                sub.Map(x => x.Data);
+            });
+
+            //DiscriminateSubClassesOnColumn("Type");
         }
     }
 }
