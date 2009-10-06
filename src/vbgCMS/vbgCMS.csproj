@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Mappings\SiteMap.cs" />
+    <Compile Include="Infrastructure\CMS\Page.cs" />
+    <Compile Include="Infrastructure\CMS\Widget.cs" />
+    <Compile Include="Infrastructure\CMS\Zone.cs" />
     <Compile Include="Infrastructure\NHibernate\AbstractQuery.cs" />
     <Compile Include="Infrastructure\NHibernate\AbstractRepository.cs" />
     <Compile Include="Infrastructure\NHibernate\Interfaces\IDelete.cs" />
