@@ -1,3 +1,3 @@
 :) --- #
 
-Bremdahl joined the team!
+Bremdahl joined the team! - and @work now
