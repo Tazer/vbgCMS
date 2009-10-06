@@ -12,7 +12,7 @@ namespace vbgCMS.Data.Mappings
         public WidgetMap()
         {
             Id(x => x.Id).GeneratedBy.HiLo("0").UnsavedValue(default(long));
-            Map(x => x.View);
+            Map(x => x.View).Column("`View`");
 
             References<Page>(x => x.Page);
             References<Zone>(x => x.Zone);
