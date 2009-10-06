@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using vbgCMS.UI.Web.Code;
+using vbgCMS.Infrastructure.CMS;
 
 namespace vbgCMS.UI.Web.Areas.Default.Helpers
 {

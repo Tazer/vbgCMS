@@ -7,6 +7,7 @@ using System.Web.Mvc.Ajax;
 using Microsoft.Practices.ServiceLocation;
 using NHibernate;
 using vbgCMS.UI.Web.Code.Configuration.NHibernate;
+using vbgCMS.Infrastructure.CMS;
 
 namespace vbgCMS.UI.Web.Areas.Install.Controllers
 {
