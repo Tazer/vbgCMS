@@ -18,7 +18,7 @@ namespace vbgCMS.Data.Mappings
             References<Site>(x => x.Site);
 
             HasMany<Zone>(x => x.Zones).AsSet();
-            HasMany<WidgetMap>(x => x.Widgets).AsSet();
+            HasMany<Widget>(x => x.Widgets).AsSet();
         }
     }
 }

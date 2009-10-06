@@ -14,6 +14,9 @@ namespace vbgCMS.Data.Mappings
             Id(x => x.Id).GeneratedBy.HiLo("0").UnsavedValue(default(long));
             Map(x => x.View);
 
+            References<Page>(x => x.Page);
+            References<Zone>(x => x.Zone);
+
             DiscriminateSubClassesOnColumn("Type");
         }
     }
