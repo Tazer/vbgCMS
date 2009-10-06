@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace vbgCMS.Models
+namespace vbgCMS.Infrastructure.Base
 {
     public abstract class BaseEntity : IEquatable<long>
     {

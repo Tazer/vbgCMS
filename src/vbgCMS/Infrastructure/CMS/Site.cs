@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using vbgCMS.Models;
+using vbgCMS.Infrastructure.Base;
 
-namespace vbgCMS
+namespace vbgCMS.Infrastructure.CMS
 {
     public class Site : BaseEntity
     {
