@@ -35,6 +35,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\FluentNHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\NHibernate.dll</HintPath>
@@ -57,9 +61,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Mappings\PageMap.cs" />
     <Compile Include="Data\Mappings\SiteMap.cs" />
+    <Compile Include="Data\Mappings\TextWidgetMap.cs" />
+    <Compile Include="Data\Mappings\WidgetMap.cs" />
+    <Compile Include="Data\Mappings\ZoneMap.cs" />
     <Compile Include="Infrastructure\CMS\Page.cs" />
     <Compile Include="Infrastructure\CMS\Widget.cs" />
+    <Compile Include="Infrastructure\CMS\Widgets.Standard\TextWidget.cs" />
     <Compile Include="Infrastructure\CMS\Zone.cs" />
     <Compile Include="Infrastructure\NHibernate\AbstractQuery.cs" />
     <Compile Include="Infrastructure\NHibernate\AbstractRepository.cs" />
