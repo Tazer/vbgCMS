@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using FluentValidation;
 using FluentValidation.Mvc;
+using Iesi.Collections.Generic;
 
 namespace vbgCMS.UI.Web.Code.Configuration.Mvc
 {

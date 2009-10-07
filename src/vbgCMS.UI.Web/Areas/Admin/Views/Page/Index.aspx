@@ -27,7 +27,7 @@
                     <%= page.Id %>
                 </td>
                 <td>
-                    <%= page.Name %>
+                    <%= page.Title %>
                 </td>
                 <td>
                     <a>Edit</a>
