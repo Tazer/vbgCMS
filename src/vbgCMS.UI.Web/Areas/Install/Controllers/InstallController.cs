@@ -19,7 +19,7 @@ namespace vbgCMS.UI.Web.Areas.Install.Controllers
         public ActionResult Step1()
         {
             var SchemaExport = new NHibernate.Tool.hbm2ddl.SchemaExport(RegisterNHibernate.Configure());
-            //SchemaExport.Drop(false, true);
+            SchemaExport.Drop(false, true);
             SchemaExport.Create(false, true);
 
             var site = new Site { Name = "vbgCMS" };

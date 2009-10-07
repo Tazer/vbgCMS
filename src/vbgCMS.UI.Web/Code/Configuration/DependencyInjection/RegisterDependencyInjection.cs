@@ -13,6 +13,8 @@ using NHibernate;
 using vbgCMS.UI.Web.Code.Configuration.NHibernate;
 using NHibernate.Context;
 using FluentValidation;
+using vbgCMS.Infrastructure.CMS.Interfaces;
+using vbgCMS.Data;
 
 namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
 {
@@ -52,6 +54,14 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
             }
         }
 
+        private class vbgCMSRegistry : Registry
+        {
+            public vbgCMSRegistry()
+            {
+                ForRequestedType<IPageRepository>().TheDefaultIsConcreteType<PageRepository>();
+            }
+        }
+
         public class StructureMapServiceLocator : ServiceLocatorImplBase
         {
 
@@ -79,6 +89,7 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
                 x.AddRegistry<MvcRegistry>();
                 x.AddRegistry<NHibernateRegistry>();
                 x.AddRegistry<ValidationRegistry>();
+                x.AddRegistry<vbgCMSRegistry>();
             });
 
             ServiceLocator.SetLocatorProvider(() => new StructureMapServiceLocator());

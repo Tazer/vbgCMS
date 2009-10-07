@@ -66,6 +66,9 @@
     <Compile Include="Data\Mappings\TextWidgetMap.cs" />
     <Compile Include="Data\Mappings\WidgetMap.cs" />
     <Compile Include="Data\Mappings\ZoneMap.cs" />
+    <Compile Include="Data\PageRepository.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Infrastructure\CMS\Interfaces\IPageRepository.cs" />
     <Compile Include="Infrastructure\CMS\Page.cs" />
     <Compile Include="Infrastructure\CMS\Widget.cs" />
     <Compile Include="Infrastructure\CMS\Widgets.Standard\TextWidget.cs" />

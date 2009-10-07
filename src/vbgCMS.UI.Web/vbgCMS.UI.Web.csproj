@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PageController.cs" />
     <Compile Include="Areas\Default\Controllers\HomeController.cs" />
     <Compile Include="Areas\Default\Helpers\SiteExtensions.cs" />
     <Compile Include="Areas\Install\Controllers\InstallController.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Code\Configuration\DependencyInjection\RegisterDependencyInjection.cs" />
     <Compile Include="Code\Configuration\IRegister.cs" />
     <Compile Include="Code\Configuration\Mvc\RegisterRoutes.cs" />
+    <Compile Include="Code\Mvc\Helpers\HtmlHelpers.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -157,13 +159,13 @@
     <Content Include="Areas\Install\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Views\Page\Index.aspx" />
     <Content Include="Areas\Admin\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Content\" />
     <Folder Include="Code\Mvc\ActionFilters\" />
-    <Folder Include="Code\Mvc\Helpers\" />
     <Folder Include="Content\" />
     <Folder Include="Scripts\" />
   </ItemGroup>

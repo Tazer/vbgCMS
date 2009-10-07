@@ -25,7 +25,7 @@ namespace vbgCMS.Infrastructure.NHibernate
 
         public IList<T> Get()
         {
-            throw new NotImplementedException();
+            return _queryable.ToList();
         }
 
         public T Get(IdT id)
