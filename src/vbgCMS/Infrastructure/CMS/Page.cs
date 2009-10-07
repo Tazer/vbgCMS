@@ -11,7 +11,7 @@ namespace vbgCMS.Infrastructure.CMS
     {
         public virtual Site Site { get; set; }
 
-        public virtual string Name { get; set; }
+        public virtual string Title { get; set; }
         public virtual string Slug { get; set; }
 
         public virtual ISet<Zone> Zones { get; set; }

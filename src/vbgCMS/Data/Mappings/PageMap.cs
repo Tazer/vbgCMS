@@ -12,7 +12,7 @@ namespace vbgCMS.Data.Mappings
         public PageMap()
         {
             Id(x => x.Id).GeneratedBy.HiLo("0").UnsavedValue(default(long));
-            Map(x => x.Name);
+            Map(x => x.Title);
             Map(x => x.Slug);
 
             References<Site>(x => x.Site);

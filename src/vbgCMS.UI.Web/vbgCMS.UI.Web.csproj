@@ -124,6 +124,7 @@
     <Compile Include="Code\Configuration\IRegister.cs" />
     <Compile Include="Code\Configuration\Mvc\RegisterRoutes.cs" />
     <Compile Include="Code\Mvc\Helpers\HtmlHelpers.cs" />
+    <Compile Include="Code\ViewModels\FormViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -159,8 +160,14 @@
     <Content Include="Areas\Install\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Views\Page\Create.aspx" />
     <Content Include="Areas\Admin\Views\Page\Index.aspx" />
+    <Content Include="Areas\Admin\Views\Shared\PageForm.ascx" />
     <Content Include="Areas\Admin\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\EditorTemplates\Page.ascx" />
+    <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,7 +9,7 @@
                     Id
                 </th>
                 <th>
-                    Name
+                    Title
                 </th>
                 <th>
                 </th>
@@ -36,4 +36,6 @@
             <% } %>
         </tbody>
     </table>
+    <br />
+    <a href="/Admin/Page/Create">Create a page</a>
 </asp:Content>
