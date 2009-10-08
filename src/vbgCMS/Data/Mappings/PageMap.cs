@@ -19,6 +19,7 @@ namespace vbgCMS.Data.Mappings
 
             HasMany<Zone>(x => x.Zones).AsSet();
             HasMany<Widget>(x => x.Widgets).AsSet();
+            Version(x => x.Version);
         }
     }
 }

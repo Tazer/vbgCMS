@@ -14,7 +14,7 @@ namespace vbgCMS.Data.Mappings
             Id(x => x.Id).GeneratedBy.HiLo("0").UnsavedValue(default(long));
             Map(x => x.Position);
             Map(x => x.Width);
-
+            Version(x => x.Version);
             References<Page>(x => x.Page);
         }
     }

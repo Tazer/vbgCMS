@@ -10,7 +10,7 @@ namespace vbgCMS.Infrastructure.CMS
     {
         public virtual Page Page { get; set; }
         public virtual Zone Zone { get; set; }
-
+        public virtual long Version { get; set; }
         public virtual string View { get; set; }
     }
 
