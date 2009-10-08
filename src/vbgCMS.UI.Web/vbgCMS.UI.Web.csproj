@@ -127,6 +127,7 @@
     <Compile Include="Code\Configuration\DependencyInjection\RegisterDependencyInjection.cs" />
     <Compile Include="Code\Configuration\IRegister.cs" />
     <Compile Include="Code\Configuration\Mvc\RegisterRoutes.cs" />
+    <Compile Include="Code\Mvc\Helpers\StringHelpers.cs" />
     <Compile Include="Code\Mvc\Helpers\HtmlHelpers.cs" />
     <Compile Include="Code\ViewModels\FormViewModel.cs" />
     <Compile Include="Global.asax.cs">

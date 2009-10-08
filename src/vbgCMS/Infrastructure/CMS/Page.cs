@@ -21,6 +21,7 @@ namespace vbgCMS.Infrastructure.CMS
 
         public virtual ICollection<Zone> Zones { get; set; }
         public virtual ICollection<Widget> Widgets { get; set; }
+        public virtual long Version { get; set; }
 
         public override int GetHashCode()
         {

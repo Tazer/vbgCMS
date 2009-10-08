@@ -7,6 +7,6 @@ namespace vbgCMS.Infrastructure.NHibernate.Interfaces
 {
     public interface IGet<T>
     {
-        IList<T> Get();
+        ICollection<T> Get();
     }
 }

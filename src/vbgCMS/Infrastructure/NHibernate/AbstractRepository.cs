@@ -20,22 +20,22 @@ namespace vbgCMS.Infrastructure.NHibernate
 
         public void Save(T obj)
         {
-            throw new NotImplementedException();
+            _session.Save(obj);
         }
 
-        public IList<T> Get()
+        public ICollection<T> Get()
         {
             return _queryable.ToList();
         }
 
         public T Get(IdT id)
         {
-            throw new NotImplementedException();
+            return _session.Get<T>(id);
         }
 
         public T Load(IdT id)
         {
-            throw new NotImplementedException();
+            return _session.Load<T>(id);
         }
 
         public void Delete(T obj)

@@ -15,15 +15,17 @@ namespace vbgCMS.Data.Mappings
             Id(x => x.Id).GeneratedBy.HiLo("0").UnsavedValue(default(long));
             Map(x => x.View).Column("`View`");
 
-            References<Page>(x => x.Page);
-            References<Zone>(x => x.Zone);
+            References(x => x.Page);
+            References(x => x.Zone);
+            Version(x => x.Version);
+        }
+    }
 
-            //How do I do this now???
-            JoinedSubClass<TextWidget>("TextWidgetId", sub => {
-                sub.Map(x => x.Data);
-            });
-
-            //DiscriminateSubClassesOnColumn("Type");
+    public class TextWidGetMap : JoinedSubClassPart<TextWidget>
+    {
+        public TextWidGetMap() : base("TextWidgetId")
+        {
+            Map(x => x.Data);
         }
     }
 }

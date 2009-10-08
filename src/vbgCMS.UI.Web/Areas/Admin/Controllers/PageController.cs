@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
 using vbgCMS.Infrastructure.CMS.Interfaces;
 using vbgCMS.Infrastructure.CMS;
-using vbgCMS.UI.Web.Code.ViewModels;
+using vbgCMS.UI.Web.Code.Mvc.Helpers;
 
 namespace vbgCMS.UI.Web.Areas.Admin.Controllers
 {
@@ -49,16 +49,18 @@ namespace vbgCMS.UI.Web.Areas.Admin.Controllers
         // POST: /Page/Create
 
         [HttpPost]
-        public ActionResult Create([Bind( Exclude="Id" )]Page page)
+        public ActionResult Create([Bind( Exclude="Id,Slug,Version" )]Page page)
         {
             if (!ModelState.IsValid)
                 return View();
 
+            page.Slug = page.Title.ToSlugString();
+
             try
             {
-                // TODO: Add insert logic here
+                _pageRepository.Save(page);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", new { id = page.Id });
             }
             catch
             {
@@ -71,14 +73,14 @@ namespace vbgCMS.UI.Web.Areas.Admin.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View(new Page() { Id = id, Title = "Hello World" });
+            return View(_pageRepository.Get(id));
         }
 
         //
         // POST: /Page/Edit/5
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit(int id, [Bind(Exclude = "Id")]Page page)
+        public ActionResult Edit(int id, [Bind(Exclude = "Id,Version")]Page page)
         {
             if (!ModelState.IsValid)
                 return View();
