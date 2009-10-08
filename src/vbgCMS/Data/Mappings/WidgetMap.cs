@@ -17,7 +17,7 @@ namespace vbgCMS.Data.Mappings
 
             References<Page>(x => x.Page);
             References<Zone>(x => x.Zone);
-
+            Version(x => x.Version);
             //How do I do this now???
             JoinedSubClass<TextWidget>("TextWidgetId", sub => {
                 sub.Map(x => x.Data);
