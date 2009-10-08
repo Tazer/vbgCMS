@@ -21,10 +21,12 @@ namespace vbgCMS.Data.Mappings
         }
     }
 
-    public class TextWidGetMap : JoinedSubClassPart<TextWidget>
+    public class TextWidGetMap : SubclassMap<TextWidget>
     {
-        public TextWidGetMap() : base("TextWidgetId")
+        public TextWidGetMap()
         {
+            KeyColumn("TextWidgetId");
+
             Map(x => x.Data);
         }
     }
