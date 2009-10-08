@@ -23,7 +23,7 @@ namespace vbgCMS.Infrastructure.NHibernate
             throw new NotImplementedException();
         }
 
-        public IList<T> Get()
+        public ICollection<T> Get()
         {
             return _queryable.ToList();
         }

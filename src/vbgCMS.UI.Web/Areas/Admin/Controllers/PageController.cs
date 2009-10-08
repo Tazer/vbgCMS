@@ -49,7 +49,7 @@ namespace vbgCMS.UI.Web.Areas.Admin.Controllers
         // POST: /Page/Create
 
         [HttpPost]
-        public ActionResult Create([Bind( Exclude="Id" )]Page page)
+        public ActionResult Create([Bind( Exclude="Id,Version" )]Page page)
         {
             if (!ModelState.IsValid)
                 return View();
@@ -78,7 +78,7 @@ namespace vbgCMS.UI.Web.Areas.Admin.Controllers
         // POST: /Page/Edit/5
 
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit(int id, [Bind(Exclude = "Id")]Page page)
+        public ActionResult Edit(int id, [Bind(Exclude = "Id,Version")]Page page)
         {
             if (!ModelState.IsValid)
                 return View();
