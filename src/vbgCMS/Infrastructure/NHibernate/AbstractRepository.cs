@@ -20,7 +20,7 @@ namespace vbgCMS.Infrastructure.NHibernate
 
         public void Save(T obj)
         {
-            _session.Save(obj);
+            _session.SaveOrUpdate(obj);
         }
 
         public ICollection<T> Get()
