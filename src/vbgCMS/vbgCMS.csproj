@@ -63,7 +63,7 @@
   <ItemGroup>
     <Compile Include="Data\Mappings\PageMap.cs" />
     <Compile Include="Data\Mappings\SiteMap.cs" />
-    <Compile Include="Data\Mappings\TextWidgetMap.cs" />
+    <Compile Include="Data\Mappings\WidgetMaps\TextWidgetMap.cs" />
     <Compile Include="Data\Mappings\WidgetMap.cs" />
     <Compile Include="Data\Mappings\ZoneMap.cs" />
     <Compile Include="Data\PageRepository.cs" />
