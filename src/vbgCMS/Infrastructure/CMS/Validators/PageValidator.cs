@@ -11,7 +11,8 @@ namespace vbgCMS.Infrastructure.CMS.Validators
     {
         public PageValidator()
         {
-            RuleFor(x => x.Title).NotNull().NotEmpty();
+            RuleFor(x => x.Title).NotEmpty();
+            RuleFor(x => x.Slug).NotEmpty();
         }
     }
 }
