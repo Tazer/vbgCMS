@@ -7,6 +7,9 @@ namespace vbgCMS.UI.Web.Code.Mvc.Controllers
 {
     public class AdminController : BaseController
     {
-
+        public IDictionary<string, string> ZoneTemplates
+        {
+            set { ViewData[KeyManager.ViewData.ZoneTemplatesList] = value; }
+        }
     }
 }

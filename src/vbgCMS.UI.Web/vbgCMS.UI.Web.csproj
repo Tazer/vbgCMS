@@ -111,8 +111,9 @@
   <ItemGroup>
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PageController.cs" />
+    <Compile Include="Areas\Admin\Helpers\ZoneHelpers.cs" />
     <Compile Include="Areas\Default\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Default\Helpers\SiteExtensions.cs" />
+    <Compile Include="Areas\Default\Helpers\SiteHelpers.cs" />
     <Compile Include="Areas\Install\Controllers\InstallController.cs" />
     <Compile Include="Code\Configuration\Mvc\RegisterModelBinder.cs" />
     <Compile Include="Code\Configuration\NHibernate\RegisterNHibernate.cs" />

@@ -16,6 +16,7 @@ namespace vbgCMS.UI.Web.Code
         public static class ViewData
         {
             public const string CurrentSite = "CurrentSite";
+            public const string ZoneTemplatesList = "ZoneTemplatesList";
         }
 
         public static class QueryStrings

@@ -8,7 +8,7 @@ using vbgCMS.Infrastructure.CMS;
 
 namespace vbgCMS.UI.Web.Areas.Default.Helpers
 {
-    public static class SiteExtensions
+    public static class SiteHelpers
     {
         public static Site CurrentSite(this ViewPage view)
         {
