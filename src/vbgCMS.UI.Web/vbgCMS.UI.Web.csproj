@@ -116,6 +116,7 @@
     <Compile Include="Areas\Install\Controllers\InstallController.cs" />
     <Compile Include="Code\Configuration\Mvc\RegisterModelBinder.cs" />
     <Compile Include="Code\Configuration\NHibernate\RegisterNHibernate.cs" />
+    <Compile Include="Code\Configuration\Validation\StructureMapValidationFactory.cs" />
     <Compile Include="Code\KeyManager.cs" />
     <Compile Include="Code\Mvc\Controllers\AdminController.cs" />
     <Compile Include="Code\Mvc\Controllers\BaseController.cs" />

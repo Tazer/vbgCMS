@@ -10,24 +10,24 @@ namespace vbgCMS.UI.Web.Code.Mvc.Controllers
 {
     public abstract class NHibernateController : Controller
     {
-        private ITransaction _transaction;
+        //private ITransaction _transaction;
 
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            _transaction = ServiceLocator.Current.GetInstance<ISession>().BeginTransaction();
+            //_transaction = ServiceLocator.Current.GetInstance<ISession>().BeginTransaction();
             base.OnActionExecuting(filterContext);
         }
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            try
-            {
-                _transaction.Commit();
-            }
-            catch (HibernateException)
-            {
-                _transaction.Rollback();
-            }
+			//try
+			//{
+			//    _transaction.Commit();
+			//}
+			//catch (HibernateException)
+			//{
+			//    _transaction.Rollback();
+			//}
 
             base.OnActionExecuted(filterContext);
         }

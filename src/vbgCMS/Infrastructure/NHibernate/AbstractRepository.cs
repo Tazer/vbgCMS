@@ -20,7 +20,19 @@ namespace vbgCMS.Infrastructure.NHibernate
 
         public void Save(T obj)
         {
-            Session.SaveOrUpdate(obj);
+			using (ITransaction transaction = Session.BeginTransaction())
+			{
+				try
+				{
+					Session.SaveOrUpdate(obj);
+					transaction.Commit();
+				}
+				catch (HibernateException)
+				{
+					transaction.Rollback();
+					throw;
+				}
+			}
         }
 
         public ICollection<T> Get()

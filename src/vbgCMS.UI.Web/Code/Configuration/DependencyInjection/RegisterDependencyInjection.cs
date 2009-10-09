@@ -15,6 +15,9 @@ using NHibernate.Context;
 using FluentValidation;
 using vbgCMS.Infrastructure.CMS.Interfaces;
 using vbgCMS.Data;
+using vbgCMS.Infrastructure.CMS;
+using vbgCMS.Infrastructure.CMS.Validators;
+using vbgCMS.UI.Web.Code.Configuration.Validation;
 
 namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
 {
@@ -28,11 +31,12 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
                 ForRequestedType<ControllerBuilder>().TheDefault.IsThis(ControllerBuilder.Current);
                 ForRequestedType<ViewEngineCollection>().TheDefault.IsThis(ViewEngines.Engines);
                 ForRequestedType<ModelBinderDictionary>().TheDefault.IsThis(ModelBinders.Binders);
-                ForRequestedType<IValidatorFactory>().TheDefault.Is.ConstructedBy(() => new DefaultValidatorFactory(ServiceLocator.Current));
+				ForRequestedType<IValidatorFactory>().TheDefault.Is.ConstructedBy(() => new StructureMapValidationFactory());
 
                 ForRequestedType<IRegister>()
                     .AddConcreteType<RegisterRoutes>()
-                    .AddConcreteType<RegisterControllerFactory>();
+                    .AddConcreteType<RegisterControllerFactory>()
+					.AddConcreteType<RegisterModelBinder>();
             }
         }
 
@@ -50,7 +54,7 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
         {
             public ValidationRegistry()
             {
-
+				ForRequestedType<IValidator<Page>>().TheDefaultIsConcreteType<PageValidator>();
             }
         }
 
