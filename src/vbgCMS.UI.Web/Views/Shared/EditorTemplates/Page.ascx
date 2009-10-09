@@ -15,7 +15,8 @@
             <% foreach (var zoneTemplate in this.ZoneTemplates())
                { %>
                 <li>
-                <%= Html.RadioButton("zoneTemplate", zoneTemplate.Value)%>
+                <%-- Make checked nicer --%>
+                <%= Html.RadioButton("zoneTemplate", zoneTemplate.Value, zoneTemplate.Value == "100")%>
                 <label><%= zoneTemplate.Key %></label></li>     
             <% } %>
         </ul>

@@ -119,6 +119,7 @@
     <Compile Include="Code\Configuration\NHibernate\RegisterNHibernate.cs" />
     <Compile Include="Code\Configuration\Validation\StructureMapValidationFactory.cs" />
     <Compile Include="Code\KeyManager.cs" />
+    <Compile Include="Code\Mvc\ActionFilters\TransactionPerRequest.cs" />
     <Compile Include="Code\Mvc\Controllers\AdminController.cs" />
     <Compile Include="Code\Mvc\Controllers\BaseController.cs" />
     <Compile Include="Code\Mvc\Controllers\CMSController.cs" />
@@ -179,7 +180,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Content\" />
-    <Folder Include="Code\Mvc\ActionFilters\" />
     <Folder Include="Content\" />
     <Folder Include="Scripts\" />
   </ItemGroup>

@@ -27,5 +27,19 @@ namespace vbgCMS.Infrastructure.CMS
         {
             return (Slug ?? string.Empty).GetHashCode(); // +base.GetHashCode();
         }
+
+        public virtual void AddZonesFromTemplateString(string template)
+        {
+            string[] zones = template.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
+
+            for (int i = 0; i < zones.Length; i++)
+            {
+                int width;
+                if (int.TryParse(zones[i], out width))
+                {
+                    this.Zones.Add(new Zone() { Position = i, Width = width, Page = this });
+                }
+            }
+        }
     }
 }

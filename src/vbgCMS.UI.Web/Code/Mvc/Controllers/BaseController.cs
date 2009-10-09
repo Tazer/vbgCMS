@@ -7,7 +7,7 @@ using System.Web.Mvc;
 namespace vbgCMS.UI.Web.Code.Mvc.Controllers
 {
     [HandleError]
-    public class BaseController : NHibernateController
+    public class BaseController : Controller
     {
         public  BaseController()
         {

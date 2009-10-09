@@ -17,8 +17,8 @@ namespace vbgCMS.Data.Mappings
 
             References<Site>(x => x.Site);
 
-            HasMany<Zone>(x => x.Zones).AsSet();
-            HasMany<Widget>(x => x.Widgets).AsSet();
+            HasMany<Zone>(x => x.Zones).AsSet().Cascade.AllDeleteOrphan();
+            HasMany<Widget>(x => x.Widgets).AsSet().Cascade.AllDeleteOrphan();
             Version(x => x.Version);
         }
     }

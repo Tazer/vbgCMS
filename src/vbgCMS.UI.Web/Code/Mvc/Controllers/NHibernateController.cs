@@ -20,15 +20,7 @@ namespace vbgCMS.UI.Web.Code.Mvc.Controllers
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            try
-            {
-                _transaction.Commit();
-            }
-            catch (HibernateException)
-            {
-                _transaction.Rollback();
-            }
-
+            
             base.OnActionExecuted(filterContext);
         }
     }
