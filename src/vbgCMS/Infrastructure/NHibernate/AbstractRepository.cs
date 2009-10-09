@@ -9,33 +9,33 @@ namespace vbgCMS.Infrastructure.NHibernate
 {
     public abstract class AbstractRepository<T, IdT>
     {
-        private readonly ISession _session;
-        private readonly IQueryable<T> _queryable;
+        protected readonly ISession Session;
+        protected readonly IQueryable<T> Queryable;
 
         public AbstractRepository(ISession session)
         {
-            _session = session;
-            _queryable = session.Linq<T>();
+            Session = session;
+            Queryable = session.Linq<T>();
         }
 
         public void Save(T obj)
         {
-            _session.SaveOrUpdate(obj);
+            Session.SaveOrUpdate(obj);
         }
 
         public ICollection<T> Get()
         {
-            return _queryable.ToList();
+            return Queryable.ToList();
         }
 
         public T Get(IdT id)
         {
-            return _session.Get<T>(id);
+            return Session.Get<T>(id);
         }
 
         public T Load(IdT id)
         {
-            return _session.Load<T>(id);
+            return Session.Load<T>(id);
         }
 
         public void Delete(T obj)

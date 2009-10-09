@@ -14,5 +14,6 @@ namespace vbgCMS.Data
        public PageRepository(ISession session) : base(session)
        {
        }
+      
    }
 }
