@@ -41,8 +41,6 @@ namespace vbgCMS.UI.Web.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            //new PageFormViewModel() { ZoneAlternatives = new Dictionary<string, string>() { { "1 Column", "100" }, { "2 Column(50/50)", "48;48" }, { "2 Column(30/70)", "28;68" }, { "1 Column(100) + 2 Column(30/70)", "100;28;68" } } }
-
             this.ZoneTemplates = new Dictionary<string, string>() { { "1 Column", "100" }, { "2 Column(50/50)", "48;48" }, { "2 Column(30/70)", "28;68" }, { "1 Column(100) + 2 Column(30/70)", "100;28;68" } };
 
             return View(new Page());

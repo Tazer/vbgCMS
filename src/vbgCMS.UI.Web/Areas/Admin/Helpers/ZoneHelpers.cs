@@ -9,14 +9,19 @@ namespace vbgCMS.UI.Web.Areas.Admin.Helpers
 {
     public static class ZoneHelpers
     {
+        public static IDictionary<string, string> ZoneTemplates(this ViewContext context)
+        {
+            return (IDictionary<string, string>)context.ViewData[KeyManager.ViewData.ZoneTemplatesList];
+        }
+
         public static IDictionary<string, string> ZoneTemplates(this ViewPage view)
         {
-            return (IDictionary<string, string>)view.ViewData[KeyManager.ViewData.ZoneTemplatesList];
+            return view.ViewContext.ZoneTemplates();
         }
 
         public static IDictionary<string, string> ZoneTemplates(this ViewUserControl view)
         {
-            return (view.Page as ViewPage).ZoneTemplates();
+            return view.ViewContext.ZoneTemplates();
         }
     }
 }
