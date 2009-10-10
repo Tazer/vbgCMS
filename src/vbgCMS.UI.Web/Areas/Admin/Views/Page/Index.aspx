@@ -30,7 +30,7 @@
                     <%= page.Title %>
                 </td>
                 <td>
-                    <a>Edit</a>
+                    <%= Html.ActionLink<PageController>(x => x.Edit(page.Id), "Edit") %>
                 </td>
             </tr>
             <% } %>

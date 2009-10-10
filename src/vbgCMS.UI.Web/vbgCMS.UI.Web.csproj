@@ -178,13 +178,14 @@
     <Content Include="Areas\Admin\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\Css\Style.css" />
     <Content Include="Areas\Admin\Views\Page\Edit.aspx" />
     <Content Include="Views\Shared\EditorTemplates\Page.ascx" />
+    <Content Include="Views\Shared\NoPageFound.aspx" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Content\" />
     <Folder Include="Content\Images\" />
     <Folder Include="Scripts\" />
   </ItemGroup>

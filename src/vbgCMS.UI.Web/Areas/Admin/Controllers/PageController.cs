@@ -74,18 +74,23 @@ namespace vbgCMS.UI.Web.Areas.Admin.Controllers
         //
         // GET: /Page/Edit/5
  
-        public ActionResult Edit(int id)
+        public ActionResult Edit(long id)
         {
+            var page = _pageRepository.Get(id);
+
+            if (page == null)
+                return View("NoPageFound");
+
             this.ZoneTemplates = new Dictionary<string, string>() { { "1 Column", "100" }, { "2 Column(50/50)", "48;48" }, { "2 Column(30/70)", "28;68" }, { "1 Column(100) + 2 Column(30/70)", "100;28;68" } };
 
-            return View(_pageRepository.Get(id));
+            return View(page);
         }
 
         //
         // POST: /Page/Edit/5
 
         [HttpPost, TransactionPerRequest]
-        public ActionResult Edit(int id, [Bind(Exclude = "Id,Version")]Page page)
+        public ActionResult Edit(long id, [Bind(Exclude = "Id,Version")]Page page)
         {
             if (!ModelState.IsValid)
                 return View();

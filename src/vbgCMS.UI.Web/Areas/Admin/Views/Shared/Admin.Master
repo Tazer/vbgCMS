@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>vbgCMS - Admin</title>
+    <link href="/Areas/Admin/Content/Css/Style.css" rel="Stylesheet" type="text/css" />
 </head>
 <body>
     <div>

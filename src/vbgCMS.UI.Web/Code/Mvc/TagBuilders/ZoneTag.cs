@@ -53,7 +53,7 @@ namespace vbgCMS.UI.Web.Code.Mvc.TagBuilders
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
         }
 
         #endregion

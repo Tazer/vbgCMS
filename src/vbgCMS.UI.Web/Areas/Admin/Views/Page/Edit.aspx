@@ -14,11 +14,13 @@
 	        <p><input type="submit" value="Save" /></p>
         <%  } %>
     </fieldset>
+    <br />
     <div id="Edit">
     <% foreach (var zone in Model.Zones)
        {
            using (Html.BeginZone(zone))
            { %>
+            <span>Rightclick to add widget</span>
             <ul>
                 <li><%= Html.Image("~/Content/Images/ajax-loader.gif", new { alt = "loading..." })%></li>
             </ul>
