@@ -14,4 +14,15 @@
 	        <p><input type="submit" value="Save" /></p>
         <%  } %>
     </fieldset>
+    <div id="Edit">
+    <% foreach (var zone in Model.Zones)
+       {
+           using (Html.BeginZone(zone))
+           { %>
+            <ul>
+                <li><%= Html.Image("~/Content/Images/ajax-loader.gif", new { alt = "loading..." )%></li>
+            </ul>
+        <% }
+       } %>
+    </div>
 </asp:Content>

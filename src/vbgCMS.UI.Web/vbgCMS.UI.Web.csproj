@@ -59,6 +59,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Mvc, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\libs\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\libs\NHibernate.dll</HintPath>
@@ -132,6 +136,7 @@
     <Compile Include="Code\Configuration\Mvc\RegisterRoutes.cs" />
     <Compile Include="Code\Mvc\Helpers\StringHelpers.cs" />
     <Compile Include="Code\Mvc\Helpers\HtmlHelpers.cs" />
+    <Compile Include="Code\Mvc\TagBuilders\ZoneTag.cs" />
     <Compile Include="Code\ViewModels\FormViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -180,7 +185,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Content\" />
-    <Folder Include="Content\" />
+    <Folder Include="Content\Images\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

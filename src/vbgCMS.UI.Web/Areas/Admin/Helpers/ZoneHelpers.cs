@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using vbgCMS.UI.Web.Code;
+using vbgCMS.UI.Web.Code.Mvc.TagBuilders;
+using vbgCMS.Infrastructure.CMS;
 
 namespace vbgCMS.UI.Web.Areas.Admin.Helpers
 {
@@ -22,6 +24,11 @@ namespace vbgCMS.UI.Web.Areas.Admin.Helpers
         public static IDictionary<string, string> ZoneTemplates(this ViewUserControl view)
         {
             return view.ViewContext.ZoneTemplates();
+        }
+
+        public static ZoneTag BeginZone(this HtmlHelper html, Zone model)
+        {
+            return new ZoneTag(html.ViewContext.HttpContext.Response).Build(model.Id.ToString(), model.Width);
         }
     }
 }
