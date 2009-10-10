@@ -20,7 +20,7 @@
            using (Html.BeginZone(zone))
            { %>
             <ul>
-                <li><%= Html.Image("~/Content/Images/ajax-loader.gif", new { alt = "loading..." )%></li>
+                <li><%= Html.Image("~/Content/Images/ajax-loader.gif", new { alt = "loading..." })%></li>
             </ul>
         <% }
        } %>
