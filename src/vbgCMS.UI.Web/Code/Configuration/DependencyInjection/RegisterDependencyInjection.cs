@@ -44,9 +44,9 @@ namespace vbgCMS.UI.Web.Code.Configuration.DependencyInjection
         {
             public NHibernateRegistry()
             {
-                ForRequestedType<ISessionFactory>().TheDefault.Is.ConstructedBy(ctx =>
+                ForRequestedType<ISessionFactory>().CacheBy(InstanceScope.HttpContext).TheDefault.Is.ConstructedBy(ctx =>
                     RegisterNHibernate.Configure().BuildSessionFactory());
-                ForRequestedType<ISession>().CacheBy(InstanceScope.Hybrid).TheDefault.Is.ConstructedBy(ctx => CustomSessionContext.CurrentSession);
+                ForRequestedType<ISession>().CacheBy(InstanceScope.HttpContext).TheDefault.Is.ConstructedBy(ctx =>  ctx.GetInstance<ISessionFactory>().GetCurrentSession() /*  CustomSessionContext.CurrentSession */ );
             }
         }
 

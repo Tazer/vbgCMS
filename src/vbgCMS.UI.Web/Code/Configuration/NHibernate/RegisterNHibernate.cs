@@ -33,29 +33,23 @@ namespace vbgCMS.UI.Web.Code.Configuration.NHibernate
                     x => x.SetProperty("current_session_context_class", "web")).BuildConfiguration();
         }
 
-        public static ISession OpenSession()
-        {
-            var session = ServiceLocator.Current.GetInstance<ISessionFactory>().OpenSession();
-            CurrentSessionContext.Bind(session);
-            return session;
-        }
-
         #region IRegister Members
 
         public void Execute()
         {
             _application.BeginRequest += delegate
                                              {
-                                                 CustomSessionContext.CurrentSession =
-                                                     ServiceLocator.Current.GetInstance<ISessionFactory>().OpenSession();
-                                                 //CurrentSessionContext.Bind(
-                                                 //  ServiceLocator.Current.GetInstance<ISessionFactory>().OpenSession());
+                                                 //CustomSessionContext.CurrentSession =
+                                                 //    ServiceLocator.Current.GetInstance<ISessionFactory>().OpenSession();
+                                                 CurrentSessionContext.Bind(
+                                                   ServiceLocator.Current.GetInstance<ISessionFactory>().OpenSession());
                                              };
             _application.EndRequest += delegate  
                                            {
-                                               var session = CustomSessionContext.CurrentSession;
-                                                   //CurrentSessionContext.Unbind(
-                                                   //    ServiceLocator.Current.GetInstance<ISessionFactory>());
+                                               var session = 
+                                                   //CustomSessionContext.CurrentSession;
+                                                   CurrentSessionContext.Unbind(
+                                                       ServiceLocator.Current.GetInstance<ISessionFactory>());
 
                                                if (session != null)
                                                    session.Dispose();
@@ -65,14 +59,14 @@ namespace vbgCMS.UI.Web.Code.Configuration.NHibernate
         #endregion
     }
 
-    public static class CustomSessionContext
-    {
-        public static ISession  CurrentSession
-        {
-            get { return (ISession)HttpContext.Current.Items["current.session"]; }
-            set { HttpContext.Current.Items["current.session"] = value; }
-        }
-    }
+    //public static class CustomSessionContext
+    //{
+    //    public static ISession  CurrentSession
+    //    {
+    //        get { return (ISession)HttpContext.Current.Items["current.session"]; }
+    //        set { HttpContext.Current.Items["current.session"] = value; }
+    //    }
+    //}
 
     public class CustomDatabaseConfiguration
     {
