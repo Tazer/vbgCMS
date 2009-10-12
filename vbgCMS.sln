@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vbgCMS", "src\vbgCMS\vbgCMS.csproj", "{AD30FDE4-1E6D-4C30-9D3F-AED42924B69F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vbgCMS.UI.Web", "src\vbgCMS.UI.Web\vbgCMS.UI.Web.csproj", "{92F7393C-BEEA-45FE-80B3-F56DA1DF1D85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vbgCMS", "src\vbgCMS\vbgCMS.csproj", "{AD30FDE4-1E6D-4C30-9D3F-AED42924B69F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
